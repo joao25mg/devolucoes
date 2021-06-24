@@ -2,11 +2,7 @@
 <html lang="pt-br">
     <?php include 'config.php';?>
 
-
-
-
-
-<!-- Busca redes para retornar -->
+<!-- Busca redes para retornar clientes -->
     <?php
         $pdo  = new PDO('mysql:host='.$servidor.';dbname='.$nome_banco.'', ''.$usuario.'', ''.$senha.'');
         $stmt = $pdo->prepare('select id_rede, nm_rede from redes order by nm_rede');
@@ -14,13 +10,6 @@
         $resultUf = $stmt->fetchAll(PDO::FETCH_CLASS);
         $stmt->closeCursor();
     ?>
-
-
-
-
-
-
-
 
 <!-- Busca Redes -->
     <?php
@@ -44,10 +33,6 @@
         }else{
       ?>
 
-
-
-
-
 <!-- Busca Motivos -->
     <?php
           $buscaM = mysqli_query($con, "select * from motivos" ) or trigger_error('Erro ao executar consutla. Detalhes = ' . mysqli_error());
@@ -58,6 +43,7 @@
           echo "</h3>";
         }else{
       ?>
+
 <!-- Busca Produtos -->
     <?php
           $buscaP = mysqli_query($con, "select * from produtos" ) or trigger_error('Erro ao executar consutla. Detalhes = ' . mysqli_error());
@@ -87,25 +73,20 @@
 <body>
     </br>
     <img src="img/logo.png" class="mx-auto d-block" alt="..." width="250em" height="auto" style="margin-bottom: -70px">
+<!-- Formulário -->
     <form id="regForm" enctype="multipart/form-data" name="regForm" action="dao/cad_devolucao.php" method="post">
         <h1>Devolução de Vendas</h1>
 
         <!-- One "tab" for each step in the form: -->
         <div class="tab">
         </br>
+<!-- Campo Número da nota -->
         <label>Número da nota</label>
         <p><input class="col form-control" id="nota" name="nota" type="number" placeholder="Número da nota"></p>
+<!-- Campo Data emissão -->
         <label>Data de emissão</label>
             <p><input class="col form-control" id="data_emissao" name="data_emissao" type="date" value='<?php echo date("Y-m-d"); ?>' placeholder="Data de emissão"></p>
-
-
-
-
-
-
-
-
-
+<!-- Campo Rede -->
         <label>Rede</label>
             <p>
                 <select class="col form-control" id="rede" name="rede">
@@ -115,8 +96,7 @@
                     <?php endforeach;} ?>
                 </select>
             </p>
-
-
+<!-- Campo Cliente -->
         <label>Cliente</label>
             <p>
                 <?php } ?>
@@ -124,22 +104,10 @@
                 </select>
             </p>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div class="tab">
         </br>
         <div id="origem">
+<!-- Campo Produto -->
             <label>Produto</label>
                 <p>
                     <select class="col form-control" id="produto" name="produto">
@@ -155,14 +123,19 @@
                             ?>
                     </select>
                 </p>
+<!-- Campo Lote -->
             <label>Lote</label>
             <p><input class="col form-control" id="lote" name="lote" placeholder="Lote"></p>
+<!-- Campo Validade -->
             <label>Data de validade</label>
                 <p><input class="col form-control" id="data_validade" name="data_validade" type="date" value='<?php echo date("Y-m-d"); ?>' placeholder="Data de validade"></p>
+<!-- Campo Quantidade -->
             <label>Quantidade (Kg)</label>
                 <p><input class="col form-control" id="quantidade" name="quantidade" type="number" placeholder="Quantidade"></p>
+<!-- Campo Unidade -->
             <label>Unidade</label>
                 <p><input class="col form-control" id="unidade" name="unidade" type="number" placeholder="Unidade"></p>
+<!-- Campo Motivo da devolução -->
             <label>Motivo da devolução</label>
                 <p>
                     <select class="col form-control" id="motivo" name="motivo">
@@ -191,19 +164,15 @@
         </div>
 
         <div class="tab">
+<!-- Campo Foto da nota -->
             <label>Foto da nota</label>
             <p><input type="file" name="foto_arquivo_nota" id="foto_arquivo_nota" class="col form-control" placeholder="Foto da Nota"></p>
-
+<!-- Campo Foto do produto -->
             <label>Foto do produto</label>
             <p><input type="file" name="foto_arquivo_produto" id="foto_arquivo_produto" class="col form-control" placeholder="Foto do produto"></p>
         </div>
         </br>
-<!--
-        <div class="tab">Login Info:
-        <p><input placeholder="Username..." oninput="this.className = ''"></p>
-        <p><input placeholder="Password..." oninput="this.className = ''"></p>
-        </div>
--->
+<!-- Botões avançar e voltar -->
         <div style="overflow:auto;">
             <div  align="center">
                 <button type="button" class="btn btn-warning" id="prevBtn" onclick="nextPrev(-1)">Voltar</button>&nbsp&nbsp
