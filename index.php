@@ -72,6 +72,7 @@
 </header>
 <body>
     </br>
+<!-- Logo sensação -->
     <img src="img/logo.png" class="mx-auto d-block" alt="..." width="250em" height="auto" style="margin-bottom: -70px">
 <!-- Formulário -->
     <form id="regForm" enctype="multipart/form-data" name="regForm" action="dao/cad_devolucao.php" method="post">

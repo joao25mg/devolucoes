@@ -34,7 +34,9 @@
 
     <!-- Page Heading -->
     <br/>
-    <h1 class="h3 mb-2 text-gray-800">Devoluções</h1>
+    <!-- Logo sensação -->
+        <img src="../img/logo.png" class="mx-auto d-block" alt="..." width="250em" height="auto" style="margin-bottom: -20px; margin-top: -20px">
+    <h1 class="h3 mb-2 text-gray-800" align="center">Devoluções</h1>
     <br/><br/>
 
     <!-- DataTales Example -->

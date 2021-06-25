@@ -5,9 +5,7 @@
 //Parametro para retornar o cod da devolução
 $busca = mysqli_query($con, "select * from parametros where id_parametro = 1" ) or trigger_error('Erro ao executar consutla. Detalhes = ' . mysqli_error());
 $cod_dev = mysqli_fetch_array($busca);
-//Retorna o nome da rede
-$busca2 = mysqli_query($con, "select * from redes where id_rede = '".$_POST['rede']."'" ) or trigger_error('Erro ao executar consutla. Detalhes = ' . mysqli_error());
-$nome_rede = mysqli_fetch_array($busca2);
+
 
 $sql = "INSERT INTO devolucoes(
 cod_devolucao,
