@@ -4,9 +4,7 @@
     <?php include '../config.php';?>
 
 <?php
-    $busca = mysqli_query($con, "SELECT * FROM devolucoes AS d 
-    INNER JOIN foto_produto AS fp ON (d.cod_devolucao = fp.cod_devolucao)
-    INNER JOIN foto_nota AS fn ON (d.cod_devolucao = fn.cod_devolucao)");
+    $busca = mysqli_query($con, "SELECT * FROM devolucoes ORDER BY cod_devolucao DESC");
 
     if (mysqli_num_rows($busca)==0) { //Se nao achar nada, lança essa mensagem
         echo "<h3 align='center'>";
@@ -32,7 +30,7 @@
 
 <body>
     <!-- Begin Page Content -->
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-left: 50px; padding-right: 50px">
 
     <!-- Page Heading -->
     <br/>
@@ -53,8 +51,6 @@
                 <th  width="20%">Rede</th>
                 <th  width="50%">Cliente</th>
                 <th  width="10%">Nota Fiscal</th>
-                <th  width="5%">Foto Prod.</th>
-                <th  width="5%">Foto NFe</th>
             </tr>
             </thead>
             <tbody>
@@ -66,8 +62,6 @@
                     <td><?php echo $dados['nm_rede']; ?></td>
                     <td><?php echo $dados['nm_cliente']; ?></td>
                     <td><?php echo $dados['nr_nota']; ?></td>
-                    <td><?php echo $dados['ft_nome_produto']; ?></td>
-                    <td><?php echo $dados['ft_nome_nota']; ?></td>
                 </tr>
                     <?php
                 }
